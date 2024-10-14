@@ -1,6 +1,8 @@
 import java.time.LocalDate;
 
+import desafioDio.dominio.Bootcamp;
 import desafioDio.dominio.Curso;
+import desafioDio.dominio.Dev;
 import desafioDio.dominio.Mentoria;
 
 public class Main {
@@ -21,8 +23,23 @@ public class Main {
         mentoria1.setDescricao("descricao mentoria java");
         mentoria1.setData(LocalDate.now());
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria1);
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria1);
+
+        Dev dev1 = new Dev();
+        dev1.setNome("Flavio");
+        dev1.InscreverBootcamp(bootcamp);
+
+        Dev dev2 = new Dev();
+        dev2.setNome("Sara");
+        dev2.InscreverBootcamp(bootcamp);
+
+        System.out.println("Conteudos inscritos: "+dev1.getConteudosInscritos());  
+        System.out.println("Conteudos inscritos: "+dev2.getConteudosInscritos());      
+
     }
 }
